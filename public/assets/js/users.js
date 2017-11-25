@@ -19,6 +19,24 @@ $(()=>{
         $('.signin-box').show();
     });
 
+    // toggle options
+    $('.btn-wheel').on('click', ()=>{
+        $('.options-box').toggle();
+        $('.profile').hide();
+    });
+
+    // delete account
+    $('.btn-delete-account').on('click', ()=>{
+        $('.btn-delete-account').hide();
+        $('.confirm-delete').show();
+    });
+
+    // cancel delete account
+    $('.btn-cancel-delete-account').on('click', ()=>{
+        $('.btn-delete-account').show();
+        $('.confirm-delete').hide();
+    });
+
     // register new user
     $('.btn-confirm-register').on('click', (e)=>{
         e.preventDefault();
@@ -138,9 +156,9 @@ $(()=>{
         });
     });
 
-    // edit profile
+    // toggle edit profile
     $('.btn-edit').on('click', ()=>{
-        $('.profile').show();
+        $('.profile').toggle();
     });
 
     // change password
@@ -179,18 +197,6 @@ $(()=>{
                 $('.change-password-notice').html('<div class="alert alert-success" role="alert">Your new password has been successfully saved.</div>');
             });
         }
-    });
-
-    // delete account
-    $('.btn-delete-account').on('click', ()=>{
-        $('.btn-delete-account').hide();
-        $('.confirm-delete').show();
-    });
-
-    // cancel delete account
-    $('.btn-cancel-delete-account').on('click', ()=>{
-        $('.btn-delete-account').show();
-        $('.confirm-delete').hide();
     });
 
     // confirm delete account

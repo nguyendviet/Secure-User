@@ -1,3 +1,7 @@
-.form-box, .profile, confirm-delete {
+.form-box, .profile, .options-box, .confirm-delete {
     display: none;
 }
+/* 
+.options-box {
+    width: 100%;
+} */
