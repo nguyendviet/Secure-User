@@ -180,4 +180,51 @@ $(()=>{
             });
         }
     });
+
+    // delete account
+    $('.btn-delete-account').on('click', ()=>{
+        $('.btn-delete-account').hide();
+        $('.confirm-delete').show();
+    });
+
+    // cancel delete account
+    $('.btn-cancel-delete-account').on('click', ()=>{
+        $('.btn-delete-account').show();
+        $('.confirm-delete').hide();
+    });
+
+    // confirm delete account
+    $('.btn-confirm-delete-account').on('click', ()=>{
+        var token = localStorage.getItem('token'); // get token from localstorage
+        var tokenObj = {
+            token: token
+        };
+
+        // send delete request
+        $.ajax({
+            url: '/user',
+            method: 'DELETE',
+            headers: tokenObj,
+            error: (err)=>{
+                message = err.responseJSON.message;
+                $('.login-notice').html('<div class="alert alert-danger" role="alert">' + message + '</div>');
+            }
+        })
+        .done((confirm)=>{
+            // if get confirm == 1
+            if(confirm) {
+                // send request to render deleted page
+                $.ajax({
+                    url: '/deleted',
+                    method: 'GET'
+                })
+                .done((content)=>{
+                    $('body').html(content);
+                });
+            }
+            else {
+                $('.notice').html('<div class="alert alert-danger" role="alert">There\'s an error. Please try again.</div>');
+            }
+        });
+    });
 });

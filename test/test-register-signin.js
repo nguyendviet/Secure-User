@@ -1,7 +1,7 @@
 var Nightmare = require('nightmare');
 var expect = require('chai').expect;
 
-describe('Secure User - User\'s actions', function() {
+describe('Secure User - Register and signin', function() {
   
     this.timeout(30000);
 

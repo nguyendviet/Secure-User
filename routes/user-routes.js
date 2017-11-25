@@ -149,34 +149,21 @@ module.exports = (app)=>{
         }
         else {
             // decode token
-            jwt.verify(token, 'secret', (err, decoded)=>{
+            jwt.verify(token, key.secret, (err, decoded)=>{
                 if (err) {
                     res.status(401).redirect('/error');
                 };
 
-                var usertype = decoded.usertype;
                 var userId = decoded.id;
-
-                if (usertype == 'parent') {
-                    db.Parent.destroy({
-                        where: {
-                            id: userId
-                        }
-                    })
-                    .then((confirm)=>{
-                        res.json(confirm);
-                    })
-                }
-                else {
-                    db.Shelter.destroy({
-                        where: {
-                            id: userId
-                        }
-                    })
-                    .then((confirm)=>{
-                        res.json(confirm);
-                    });
-                }
+                
+                db.User.destroy({
+                    where: {
+                        id: userId
+                    }
+                })
+                .then((confirm)=>{
+                    res.json(confirm);
+                })
             });
         }
     });
