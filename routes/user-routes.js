@@ -45,11 +45,47 @@ module.exports = (app)=>{
         });
     });
 
+    // sign in user
+    app.post('/signin', (req, res)=>{
+        // search parent table for entered email
+        db.User.findAll({
+            where: {
+                email: req.body.email
+            }
+        })
+        .then((user)=>{
+            // if email not registered
+            if (user.length === 0) {
+                res.status(401).send({message: 'Your email has not been registered.'});
+            }
+            // if email registered
+            else {
+                var password = req.body.password;
+                var hash = user[0].password;
+
+                // compare entered password with saved password
+                bcrypt.compare(password, hash, (err, match)=>{
+                    if (err) throw err;
+                    
+                    if (!match) {
+                        res.status(401).send({message: 'Wrong email and password combination.'});
+                    }
+                    else {
+                        var id = user[0].id;
+                        var name = user[0].name;
+                        var token = jwt.sign({id: id}, key.secret, {expiresIn: '4h'});
+
+                        // send token to client
+                        res.send({token: token, name: name});
+                    }
+                });
+            }
+        });
+    });
+
     // authenticate user
     app.post('/auth/:name', (req, res)=>{
         var token = req.headers.token;
-
-        console.log('\n==============\nget token at post auth token ' + token);
 
         if (!token) {
             res.status(401).redirect('/error');
@@ -57,5 +93,10 @@ module.exports = (app)=>{
         else {
             res.redirect('/user/' + token);
         }
+    });
+
+    // sign out user
+    app.post('/signout', (req, res)=>{
+        res.redirect('/');
     });
 };
