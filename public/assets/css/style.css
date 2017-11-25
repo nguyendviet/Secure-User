@@ -10,6 +10,10 @@ body {
     background-size: cover;
 }
 
+textarea {
+    resize: none;
+}
+
 .jumbotron, .options-box, .landing-box {
     background: rgba(225, 225, 225, .7);
 }

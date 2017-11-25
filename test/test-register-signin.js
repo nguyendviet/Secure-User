@@ -5,7 +5,7 @@ describe('Secure User - Register and signin', function() {
   
     this.timeout(30000);
 
-    it('should try to login with unregistered email', (done)=>{
+    it('should try to signin with an unregistered email', (done)=>{
         Nightmare({show: true})
         .goto('http://localhost:3000/')
         .wait('.jumbotron')
