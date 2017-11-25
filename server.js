@@ -20,7 +20,7 @@ app.use(express.static('public'));
 app.engine('handlebars', eHandle({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// require('./routes/api-routes.js')(app);
+require('./routes/user-routes.js')(app);
 require("./routes/html-routes.js")(app);
 
 // sync sequelize models
