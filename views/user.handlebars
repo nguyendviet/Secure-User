@@ -1,19 +1,18 @@
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+        <h4>Hello {{this.name}}</h4>
+        <p>Here you can manage your travel log.</p>
+        <button class="btn btn-outline-success btn-wheel" type="button"><i class="fa fa-cog" aria-hidden="true"></i></button>
+    </div>
+</div>
+
+<div class="text-center options-box">
+    <button class="col-md-3 btn btn-outline-danger my-1 btn-signout" type="button">Sign Out</button>
+    <button class="col-md-3 btn btn-outline-warning my-1 btn-edit" type="button">Edit Profile</button>
+    <button class="col-md-3 btn btn-outline-success my-1 btn-write" type="button">New Entry</button>
+</div>
+
 <div class="container text-center">
-
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h4>Hello {{this.name}}</h4>
-            <p>Here you can manage your travel log.</p>
-            <button class="btn btn-outline-success btn-wheel" type="button"><i class="fa fa-cog" aria-hidden="true"></i></button>
-        </div>
-    </div>
-
-
-    <div class="row justify-content-center options-box">
-        <button class="col-md-3 btn btn-outline-danger my-1 btn-signout" type="button">Sign Out</button>
-        <button class="col-md-3 btn btn-outline-warning my-1 btn-edit" type="button">Edit Profile</button>
-        <button class="col-md-3 btn btn-outline-success my-1 btn-write" type="button">New Entry</button>
-    </div>
 
     <div class="profile">
         <h4>Change password</h4>
@@ -38,7 +37,7 @@
 
         <button type="button" class="btn btn-danger btn-delete-account">Delete Account</button>
         <div class="confirm-delete">
-            <p>Are you sure you want to delete your account?</p>
+            <div class="alert alert-warning" role="alert">Are you sure you want to delete your account?</div>
             <button type="button" class="btn btn-danger btn-confirm-delete-account">Confirm</button>
             <button type="button" class="btn btn-warning btn-cancel-delete-account">Cancel</button>
         </div>

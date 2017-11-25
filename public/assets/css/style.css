@@ -1,7 +1,19 @@
 .form-box, .profile, .options-box, .confirm-delete {
     display: none;
 }
-/* 
-.options-box {
-    width: 100%;
-} */
+
+body {
+    background: url(../img/bg-index.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.jumbotron, .options-box, .landing-box {
+    background: rgba(225, 225, 225, .7);
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}

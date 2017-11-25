@@ -30,8 +30,9 @@ describe('Secure User - Register and signin', function() {
         .type('.email-register', 'anna@mail.com')
         .type('.password-register', 'annapassword')
         .click('.btn-confirm-register')
-        .wait('.btn-signout')
-        .wait(1000 * 3)
+        .wait('.btn-wheel')
+        .click('.btn-wheel')
+        .wait(1000 * 2)
         .click('.btn-signout')
         .then(()=>{
             done();
@@ -62,7 +63,10 @@ describe('Secure User - Register and signin', function() {
         .type('.email-signin', 'anna@mail.com')
         .type('.password-signin', 'annapassword')
         .click('.btn-confirm-signin')
-        .wait(1000 * 3)
+        .wait('.btn-wheel')
+        .wait(1000 * 2)
+        .click('.btn-wheel')
+        .click('.btn-signout')
         .then(()=>{
             done();
         });
