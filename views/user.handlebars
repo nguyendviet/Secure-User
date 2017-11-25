@@ -1,3 +1,38 @@
-<p>Hello {{this.name}}</p>
+<div class="container text-center">
 
-<button type="button" class="btn btn-warning btn-signout">Sign Out</button>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h4>Hello {{this.name}}</h4>
+            <p>Here you can manage your travel log.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <button class="col-md-3 btn btn-outline-danger m-1 btn-signout" type="button">Sign Out</button>
+        <button class="col-md-3 btn btn-outline-warning m-1 btn-edit" type="button">Edit Profile</button>
+        <button class="col-md-3 btn btn-outline-success m-1 btn-write" type="button">New Entry</button>
+        
+    </div>
+
+    <div class="profile">
+        <h4>Change password</h4>
+        <div class="change-password-notice"></div>
+        <form>
+            <fieldset class="form-group">
+                <input type="password" name="password" placeholder="New Password" class="form-control password-new1"/>
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="password" name="password" placeholder="Retype New Password" class="form-control password-new2"/>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <input type="submit" name="signUp" value="Save Password" class="btn btn-success btn-save-password"/>
+            </fieldset>
+        </form>
+    </div>
+
+    <div>
+        <h2>All entries here!</h2>
+    </div>
+
+</div>

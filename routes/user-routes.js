@@ -99,4 +99,85 @@ module.exports = (app)=>{
     app.post('/signout', (req, res)=>{
         res.redirect('/');
     });
+
+    // change password
+    app.put('/user', (req, res)=>{
+        var token = req.headers.token;
+        var newPassword = req.body.password;
+
+        // check if token exists
+        if (!token) {
+            res.status(401).redirect('/error');
+        }
+        else {
+            // decode token
+            jwt.verify(token, key.secret, (err, decoded)=>{
+                if (err) {
+                    res.status(401).redirect('/error');
+                };
+
+                var userId = decoded.id;
+
+                // encrypt password
+                bcrypt.hash(newPassword, saltRounds, (errEncrypt, hash)=>{
+                    if (errEncrypt) throw errEncrypt;
+                    
+                    db.User.update(
+                        {
+                            password: hash
+                        }, {
+                            where: {
+                                id: userId
+                            }
+                        }
+                    )
+                    .then((changed)=>{
+                        res.json(changed);
+                    });
+                }); 
+            });
+        }
+    });
+
+    // delete account
+    app.delete('/user', (req, res)=>{
+        var token = req.headers.token;
+
+        // check if token exists
+        if (!token) {
+            res.status(401).redirect('/error');
+        }
+        else {
+            // decode token
+            jwt.verify(token, 'secret', (err, decoded)=>{
+                if (err) {
+                    res.status(401).redirect('/error');
+                };
+
+                var usertype = decoded.usertype;
+                var userId = decoded.id;
+
+                if (usertype == 'parent') {
+                    db.Parent.destroy({
+                        where: {
+                            id: userId
+                        }
+                    })
+                    .then((confirm)=>{
+                        res.json(confirm);
+                    })
+                }
+                else {
+                    db.Shelter.destroy({
+                        where: {
+                            id: userId
+                        }
+                    })
+                    .then((confirm)=>{
+                        res.json(confirm);
+                    });
+                }
+            });
+        }
+    });
 };

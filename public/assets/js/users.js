@@ -137,4 +137,47 @@ $(()=>{
             $('body').html(content);
         });
     });
+
+    // edit profile
+    $('.btn-edit').on('click', ()=>{
+        $('.profile').show();
+    });
+
+    // change password
+    $('.btn-save-password').on('click', (e)=>{
+        e.preventDefault();
+
+        var newPassword = $('.password-new1').val().trim();
+        var confirmPassword = $('.password-new2').val().trim();
+
+        // if entered passwords don't match
+        if (newPassword !== confirmPassword) {
+            $('.change-password-notice').html('<div class="alert alert-danger" role="alert">The passwords you entered don\'t match.</div>');
+        }
+        // if entered passwords match
+        else {
+            var token = localStorage.getItem('token'); // get token from localstorage
+            var tokenObj = {
+                token: token
+            };
+            var newPassObj = {
+                password: newPassword
+            };
+            
+            // send request to update password
+            $.ajax({
+                url: '/user',
+                method: 'PUT',
+                data: newPassObj,
+                headers: tokenObj,
+                error: (err)=>{
+                    message = err.responseJSON.message;
+                    $('.login-notice').html('<div class="alert alert-danger" role="alert">' + message + '</div>');
+                }
+            })
+            .done((newpass)=>{
+                $('.change-password-notice').html('<div class="alert alert-success" role="alert">Your new password has been successfully saved.</div>');
+            });
+        }
+    });
 });

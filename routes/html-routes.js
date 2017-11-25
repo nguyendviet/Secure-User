@@ -10,8 +10,6 @@ module.exports = (app)=>{
     app.get('/user/:token', (req, res)=>{
         var token = req.params.token;
 
-        console.log('\n================\nget token at get user token ' + token);
-
         // check if token exists
         if (!token) {
             res.status(401).redirect('/error');
