@@ -10,7 +10,7 @@ A full stack app that allows users to securely register or sign in then write no
 ### Logic
 * Users register or sign in. App handles cases: unregistered email address, wrong email and password combination...
 * Users can change password, delete account.
-* Users write new note and app updates notes instantly from database.
+* Users write new notes and app updates notes instantly from database.
 
 ## Install
 After cloning the repo to your local machine, go to its folder and run:
