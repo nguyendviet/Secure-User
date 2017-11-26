@@ -17,6 +17,10 @@ After cloning the repo to your local machine, go to its folder and run:
 ```
 $ npm install --save
 ```
+Next, you need to install mysql2 manually, so run:
+```
+$ npm install --save mysql2
+```
 You will also need to make your own keys.js file in folder /config.
 
 ## Test

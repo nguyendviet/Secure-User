@@ -1,4 +1,8 @@
 $(()=>{
+    // keep scrollbar bottom
+    var contentBox = $('.note-content');
+    contentBox.scrollTop = contentBox.scrollHeight;
+
     // show note box and previous notes
     $('.btn-note').on('click', ()=>{
         var token = localStorage.getItem('token'); // get token from localstorage

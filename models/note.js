@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes)=>{
     var Note = sequelize.define('Note', {
         entry: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-              len: [1, 255]
+              len: [1]
             }
         }
     });

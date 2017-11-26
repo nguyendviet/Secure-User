@@ -19,6 +19,7 @@ h3 {
 }
 
 textarea {
+    overflow-y: scroll;
     resize: none;
 }
 
