@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const db = require('./models');
 // set up express
 const app = express();
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 // use express to parse data
 app.use(bParse.json());
