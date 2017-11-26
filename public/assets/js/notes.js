@@ -17,6 +17,12 @@ $(()=>{
         })
         .done((result)=>{
             console.log(result);
+            console.log(result[0]);
+            for (var i = 0; i < result.length; i+=1) {
+                var content = result[i].entry;
+                console.log(content);
+                $('.show-notes').html(content);
+            }
         });
     });
 });

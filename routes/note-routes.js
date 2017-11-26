@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../models');
 var key = require('../config/keys');
@@ -6,8 +5,6 @@ var key = require('../config/keys');
 module.exports = (app)=>{
     // new note
     app.post('/note/new', (req, res)=>{
-
-        console.log('\n============\nget new note!');
         var token = req.headers.token;
         
         // check if token exists
@@ -21,15 +18,29 @@ module.exports = (app)=>{
                     res.status(401).redirect('/error');
                 }
                 else {
+                    var id = decoded.id;
+                    var content = req.body.entry;
 
-                    console.log('\n==================\ncontent: ' + req.body.entry);
-                    console.log('\n=========\ndecoded id: ' + decoded.id);
+                    // save new note to note table
                     db.Note.create({
-                            UserId: decoded.id,
-                            entry: req.body.entry
+                            UserId: id,
+                            entry: content
                     })
                     .then((note)=>{
-                        res.json(note);
+                        // res.json(note);
+
+                        // find all notes by this user
+                        db.Note.findAll({
+                            where: {UserId: id},
+                            order: [['createdAt', 'DESC']],
+                            limit: 10
+                        })
+                        .done((notes)=>{
+                            // send all notes back
+                            res.json(notes);
+
+                            // res.redirect('/user/' + token + '/' + notes);
+                        });
                     });
                 }
             });
