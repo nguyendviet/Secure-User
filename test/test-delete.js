@@ -36,6 +36,7 @@ describe('Secure User - Delete account', function() {
         .wait('.btn-wheel')
         .click('.btn-wheel')
         .click('.btn-edit')
+        .scrollTo(200, 0)
         .click('.btn-delete-account')
         .wait(1000 * 2)
         .click('.btn-cancel-delete-account')

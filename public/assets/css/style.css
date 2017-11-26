@@ -2,20 +2,28 @@
     display: none;
 }
 
-/* body {
+hr {
+    background-color: white;
+}
+
+body {
     background: url(../img/bg-index.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-} */
+}
+
+h3 {
+    color: white;
+}
 
 textarea {
     resize: none;
 }
 
-.jumbotron, .options-box, .landing-box {
-    background: rgba(225, 225, 225, .7);
+.jumbotron, .options-box, .each-note, .landing-box {
+    background: rgba(225, 225, 225, .8);
 }
 
 .jumbotron {

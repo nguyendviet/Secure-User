@@ -1,4 +1,5 @@
 $(()=>{
+    // show note box and previous notes
     $('.btn-note').on('click', ()=>{
         var token = localStorage.getItem('token'); // get token from localstorage
         var tokenObj = {
@@ -12,24 +13,30 @@ $(()=>{
             method: 'POST',
             headers: tokenObj
         })
-        .done((result)=>{
+        .done((notes)=>{
+            // clear the div
             $('.old-notes').html('');
 
-            for (var i = 0; i < result.length; i+=1) {
-                var content = result[i].entry;
+            // print out notes from server
+            for (var i = 0; i < notes.length; i+=1) {
+                var time = notes[i].createdAt;
+                var content = notes[i].entry;
                 var note = $('<div>');
-                note.append(content);
+                note.addClass('mb-1 pl-1 each-note');
+                note.append('<p><small>' + time + '</small></p>');
+                note.append('<p>' + content + '<p>');
                 $('.old-notes').append(note);
             };
         });
     });
 
+    // save new note
     $('.btn-save-note').on('click', ()=>{
         var token = localStorage.getItem('token'); // get token from localstorage
         var tokenObj = {
             token: token
         };
-        var content = $('textarea').val();
+        var content = $('.note-content').val();
         var contentObj = {
             entry: content
         };
@@ -40,17 +47,23 @@ $(()=>{
             data: contentObj,
             headers: tokenObj
         })
-        .done((result)=>{
-            console.log(result);
-            console.log(result[0]);
+        .done((notes)=>{
+            // clear the div
             $('.old-notes').html('');
-            for (var i = 0; i < result.length; i+=1) {
-                var content = result[i].entry;
+
+            // print out notes from server
+            for (var i = 0; i < notes.length; i+=1) {
+                var time = notes[i].createdAt;
+                var content = notes[i].entry;
                 var note = $('<div>');
-                note.append(content);
-                console.log(content);
+                note.addClass('mb-1 pl-1 each-note');
+                note.append('<p><small>' + time + '</small></p>');
+                note.append('<p>' + content + '<p>');
                 $('.old-notes').append(note);
             };
+
+            //clear textarea
+            $('.note-content').val('');
         });
     });
 });
