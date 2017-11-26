@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const db = require('./models');
 // set up express
 const app = express();
-var PORT = process.env.PORT || 3000;
+var port = process.env.PORT || 8000;
 
 // use express to parse data
 app.use(bParse.json());
@@ -26,7 +26,7 @@ require("./routes/html-routes.js")(app);
 
 // sync sequelize models
 db.sequelize.sync({force: true}).then(()=>{
-  app.listen(PORT, ()=>{
-    console.log('Foster-Me listening on port ' + PORT);
+  app.listen(port, ()=>{
+    console.log('Foster-Me listening on port ' + port);
   });
 });
