@@ -11,6 +11,7 @@ $(()=>{
         };
 
         $('.note-box').toggle();
+        $('.profile').hide();
 
         $.ajax({
             url: '/note/show',
