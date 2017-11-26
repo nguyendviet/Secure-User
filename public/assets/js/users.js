@@ -124,7 +124,6 @@ $(()=>{
             }
         })
         .done((signin)=>{
-            console.log(signin);
             // save token to localstorage
             localStorage.setItem('token', signin.token);
 
