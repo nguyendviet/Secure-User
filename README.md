@@ -5,6 +5,7 @@ A full stack app that allows users to securely register or sign in then write no
 
 ### Demo
 * Heroku: [Secure User](https://viet-secure-user.herokuapp.com/)
+<img src="https://github.com/nguyendviet/Secure-User/blob/master/github.png" width="400"/>
 
 ### Logic
 * Users register or sign in. App handles cases: unregistered email address, wrong email and password combination...
