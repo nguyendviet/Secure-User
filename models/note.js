@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes)=>{
         Note.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
-            }
+            },
+            onDelete: "cascade"
         });
     };
   

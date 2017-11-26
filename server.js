@@ -27,6 +27,6 @@ require("./routes/html-routes.js")(app);
 // sync sequelize models
 db.sequelize.sync({force: true}).then(()=>{
   app.listen(port, ()=>{
-    console.log('Foster-Me listening on port ' + port);
+    console.log('App listening on port ' + port);
   });
 });
