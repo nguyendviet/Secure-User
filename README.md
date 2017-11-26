@@ -21,7 +21,10 @@ Next, you need to install mysql2 manually, so run:
 ```
 $ npm install --save mysql2
 ```
-You will also need to make your own keys.js file in folder /config.
+You will also need to make your own keys.js file in folder /config. This is how your keys.js file should look like:
+```
+module.exports = {secret: 'YOUR OWN KEY HERE'};
+```
 
 ## Test
 Go to folder /test and run:
