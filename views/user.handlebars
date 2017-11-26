@@ -9,7 +9,7 @@
 <div class="text-center options-box">
     <button class="col-md-3 btn btn-outline-danger my-1 btn-signout" type="button">Sign Out</button>
     <button class="col-md-3 btn btn-outline-warning my-1 btn-edit" type="button">Edit Profile</button>
-    <button class="col-md-3 btn btn-outline-success my-1 btn-write" type="button">New Entry</button>
+    <button class="col-md-3 btn btn-outline-success my-1 btn-note" type="button">Notes</button>
 </div>
 
 <div class="container text-center">
@@ -45,17 +45,14 @@
 
 </div>
 
-<div class="container mt-1 new-note">
-    <textarea name="newNote" rows="10" class="col-md-10 offset-md-1 note-content"></textarea>
-    <div class="row justify-content-center">
-        <button type="button" class="btn btn-success btn-save-note">Save</button>
-    </div>  
-</div>
-
-<div>
-    <h2>All entries here!</h2>
-
-    <div class="show-notes">
+<div class="container mt-1 note-box">
+    <div>
+        <textarea name="newNote" rows="10" class="col-md-10 offset-md-1 note-content"></textarea>
         
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-success btn-save-note">Save</button>
+        </div>  
     </div>
+
+    <div class="old-notes"></div>
 </div>

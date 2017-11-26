@@ -29,18 +29,48 @@ module.exports = (app)=>{
                     .then((note)=>{
                         // res.json(note);
 
-                        // find all notes by this user
+                        // find old notes by this user
                         db.Note.findAll({
                             where: {UserId: id},
                             order: [['createdAt', 'DESC']],
-                            limit: 10
+                            limit: 50
                         })
                         .done((notes)=>{
                             // send all notes back
                             res.json(notes);
-
-                            // res.redirect('/user/' + token + '/' + notes);
                         });
+                    });
+                }
+            });
+        }
+    });
+
+    // show old notes
+    app.post('/note/show', (req, res)=>{
+        var token = req.headers.token;
+        
+        // check if token exists
+        if (!token) {
+            res.status(401).redirect('/error');
+        }
+        else {
+            // decode token
+            jwt.verify(token, key.secret, (err, decoded)=>{
+                if (err) {
+                    res.status(401).redirect('/error');
+                }
+                else {
+                    var id = decoded.id;
+
+                    // find old notes by this user
+                    db.Note.findAll({
+                        where: {UserId: id},
+                        order: [['createdAt', 'DESC']],
+                        limit: 50
+                    })
+                    .done((notes)=>{
+                        // send all notes back
+                        res.json(notes);
                     });
                 }
             });

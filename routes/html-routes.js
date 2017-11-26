@@ -38,39 +38,6 @@ module.exports = (app)=>{
         }
     });
 
-    // app.get('/user/:token/:notes', (req, res)=>{
-    //     var token = req.params.token;
-    //     var notes = req.params.notes;
-
-    //     // check if token exists
-    //     if (!token) {
-    //         res.status(401).redirect('/error');
-    //     }
-    //     else {
-    //         // decode token
-    //         jwt.verify(token, key.secret, (err, decoded)=>{
-    //             if (err) {
-    //                 res.status(401).redirect('/error');
-    //             }
-    //             else {
-    //                 db.User.findAll({
-    //                     where: {
-    //                         id: decoded.id
-    //                     }
-    //                 })
-    //                 .then((user)=>{
-    //                     var userName = user[0].name;
-    //                     var userObj = {
-    //                         name: userName,
-    //                         note: notes
-    //                     }
-    //                     res.render('user', userObj);
-    //                 });
-    //             }
-    //         });
-    //     }
-    // });
-
     app.get('/error', (req, res)=>{
         res.render('error');
     });

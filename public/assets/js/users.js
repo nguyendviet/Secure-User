@@ -23,6 +23,13 @@ $(()=>{
     $('.btn-wheel').on('click', ()=>{
         $('.options-box').toggle();
         $('.profile').hide();
+        $('.note-box').hide();
+    });
+
+    // toggle edit profile
+    $('.btn-edit').on('click', ()=>{
+        $('.profile').toggle();
+        $('.note-box').hide();
     });
 
     // delete account
@@ -154,11 +161,6 @@ $(()=>{
         .done((content)=>{
             $('body').html(content);
         });
-    });
-
-    // toggle edit profile
-    $('.btn-edit').on('click', ()=>{
-        $('.profile').toggle();
     });
 
     // change password
