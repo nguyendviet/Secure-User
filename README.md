@@ -1,7 +1,6 @@
 # Secure User
 
 ## Overview
-Personal project.
 A full stack app that allows users to securely register or sign in then write notes which are saved to its database.
 
 ### Demo
