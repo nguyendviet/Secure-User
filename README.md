@@ -29,5 +29,5 @@ $ mocha <test-file-name>
 * npm: mocha, chai, brcypt, jsonwebtoken, handlebars, body-parser.
 * jQuery, Bootstrap 4.
 
-## Author(s)
+## Author
 * **Viet Nguyen** - *Solo developer*
