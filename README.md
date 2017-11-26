@@ -7,8 +7,9 @@ A full stack app that allows users to securely register or sign in then write no
 * Heroku: [Secure User](https://viet-secure-user.herokuapp.com/)
 
 ### Logic
-* Explain how the app works
-* Step by step
+* Users register or sign in. App handles cases: unregistered email address, wrong email and password combination...
+* Users can change password, delete account.
+* Users write new note and app updates notes instantly from database.
 
 ## Install
 After cloning the repo to your local machine, go to its folder and run:
