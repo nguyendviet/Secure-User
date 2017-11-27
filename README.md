@@ -3,6 +3,9 @@
 ## Overview
 A full stack app that allows users to securely register or sign in then write notes which are saved to its database.
 
+### Why I built this app?
+Internet security is a hot topic after recent hacks. I built this app that provides secure password encryption and connections for people so they can sign in and sefely log their travel entries.
+
 ### Demo
 * Heroku: [Secure User](https://viet-secure-user.herokuapp.com/)
 <img src="https://github.com/nguyendviet/Secure-User/blob/master/github.png" width="400"/>
