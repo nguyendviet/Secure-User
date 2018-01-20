@@ -8,7 +8,8 @@ Internet security is a hot topic after recent hacks. I built this app that provi
 
 ### Demo
 * Heroku: [Secure User](https://viet-secure-user.herokuapp.com/)
-<img src="https://github.com/nguyendviet/Secure-User/blob/master/github.png" width="400"/>
+
+<img src="https://media.giphy.com/media/l1IBjOXOhCdeHV4PK/giphy.gif" width="800"/>
 
 ### Logic
 * User registers or signs in. App handles cases: unregistered email address, wrong email and password combination...
